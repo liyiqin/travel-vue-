@@ -26,6 +26,9 @@ export default {
         imgUrl: 'http://img1.qunarzz.com/sight/source/1811/b8/5d599bbdcf8b57.jpg_r_640x214_2ee055e3.jpg'
       }]
     }
+  },
+  updated () {
+    this.swiper.refresh()
   }
 }
 </script>
