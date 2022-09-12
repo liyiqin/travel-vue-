@@ -2,7 +2,7 @@
     <div>
         <div class="title">热销推荐</div>
        <ul>
-        <li class="item border-bottom" v-for="item of recommendList" :key="item.id">
+        <li class="item border-bottom" v-for="item of list" :key="item.id">
             <img class="item-img" :src="item.imgUrl"/>
             <div class="item-info">
             <p class="item-title">{{item.title}}</p>
@@ -17,29 +17,8 @@
 <script>
 export default {
   name: 'HomeRecommend',
-  data () {
-    return {
-      recommendList: [{
-        id: '0001',
-        imgUrl: 'https://imgs.qunarzz.com/sight/p0/1905/af/af4f95f579ee43b1a3.water.jpg_200x200_9fdbf80f.jpg',
-        title: '东莞观音山旅游风景区',
-        desc: '吸引广大游客走进生态自然'
-      }, {
-        id: '0002',
-        imgUrl: 'https://imgs.qunarzz.com/sight/p0/1905/af/af4f95f579ee43b1a3.water.jpg_200x200_9fdbf80f.jpg',
-        title: '东莞观音山旅游风景区',
-        desc: '吸引广大游客走进生态自然'
-      }, {
-        id: '0003',
-        imgUrl: 'https://imgs.qunarzz.com/sight/p0/1905/af/af4f95f579ee43b1a3.water.jpg_200x200_9fdbf80f.jpg',
-        title: '东莞观音山旅游风景区',
-        desc: '吸引广大游客走进生态自然'
-      }, {
-        id: '0004',
-        imgUrl: 'https://imgs.qunarzz.com/sight/p0/1905/af/af4f95f579ee43b1a3.water.jpg_200x200_9fdbf80f.jpg',
-        title: '东莞观音山旅游风景区',
-        desc: '吸引广大游客走进生态自然'
-      }]}
+  props: {
+    list: Array
   }
 }
 </script>
