@@ -49,9 +49,6 @@ export default {
   },
   mounted () {
     this.getDetailInfo()
-  },
-  activated () {
-
   }
 }
 </script>

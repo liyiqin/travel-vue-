@@ -9,15 +9,18 @@
                 {{this.bannerImgs.length}}</div>
             </div>
         </div>
-        <common-gallary :imgs="bannerImgs"
-        v-show="showGallay"
-        @close="handleGallaryClose"
-        ></common-gallary>
+        <fade-anmation>
+          <common-gallary :imgs="bannerImgs"
+          v-show="showGallay"
+          @close="handleGallaryClose"
+          ></common-gallary>
+        </fade-anmation>
     </div>
 </template>
 
 <script>
 import CommonGallary from 'common/gallary/Gallary'
+import FadeAnmation from 'common/fade/FadeAnmation'
 export default {
   name: 'DetailBanner',
   props: {
@@ -39,7 +42,8 @@ export default {
     }
   },
   components: {
-    CommonGallary
+    CommonGallary,
+    FadeAnmation
   }
 }
 </script>
