@@ -12,10 +12,12 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
       '/api':{
-        target: 'http://localhost:8080',
-        pathRewrite: {
-          '^/api': '/static/mock'
-        }
+        target: 'http://localhost:81'
+        /* target: 'http://localhost:3000',
+        ws: true,
+        changeOrigin: true,
+        pathRewrite: { '^/api': 'http://localhost:3000', }
+        //重写方法链接本地node服务器https://blog.csdn.net/qq_41191777/article/details/122298846 */
       }
     },
 
