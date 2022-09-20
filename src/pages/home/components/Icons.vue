@@ -14,30 +14,28 @@
 </template>
 
 <script>
+import { computed } from 'vue'
 export default {
   name: 'HomeIoncs',
   props: {
     list: Array
   },
-  data () {
-    return {
-      swiperOption: {
+  setup(props) {
+    const swiperOption = {
         autoplay: false
       }
-    }
-  },
-  computed: {
-    pages () {
-      const pages = []
-      this.list.forEach((item, index) => {
-        const page = Math.floor(index / 8)
-        if (!pages[page]) {
-          pages[page] = []
-        }
-        pages[page].push(item)
+      const pages = computed(() => {
+        const pages = []
+        props.list.forEach((item, index) => {
+          const page = Math.floor(index / 8)
+          if (!pages[page]) {
+            pages[page] = []
+          }
+          pages[page].push(item)
+        })
+        return pages
       })
-      return pages
-    }
+      return { swiperOption, pages }
   }
 }
 </script>

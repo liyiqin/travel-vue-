@@ -1,9 +1,10 @@
+import Router, { createRouter, createWebHistory } from 'vue-router';
 import Vue from 'vue'
-import Router from 'vue-router'
 
-Vue.use(Router)
 
-export default new Router({
+export default createRouter({
+  history: createWebHistory(),
+
   routes: [
     {
       path: '/',
@@ -25,6 +26,5 @@ export default new Router({
     } else {
       return { x: 0, y: 0 }
     }
-  },
-  mode: 'history'
-})
+  }
+});

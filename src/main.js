@@ -1,4 +1,6 @@
-import Vue from 'vue'
+globalThis.__VUE_OPTIONS_API__ = true;
+globalThis.__VUE_PROD_DEVTOOLS__ = false;
+import { createApp } from 'vue';
 import App from './App'
 import router from './router'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
@@ -8,13 +10,21 @@ import 'styles/border.css'
 import 'styles/iconfont.css'
 import 'swiper/dist/css/swiper.css'
 
-Vue.config.productionTip = false
-Vue.use(VueAwesomeSwiper)
+//Vue.use(VueAwesomeSwiper)
 
-Vue.config.productionTip = false
+createApp(App).config.productionTip = false
 
-new Vue({
-  router,
-  store,
-  render: h => h(App)
-}).$mount('#app')
+router.afterEach((to, from) => {
+    let bodyScrollTop = document.body.scrollTop
+    if (bodyScrollTop !== 0) {
+        document.body.scrollTop = 0
+        return
+    }
+    let docScrollTop = document.documentElement.scrollTop
+    if (docScrollTop !== 0) {
+        document.documentElement.scrollTop = 0
+    }
+})
+
+
+createApp(App).use(router).use(store).use(VueAwesomeSwiper).mount('#app')

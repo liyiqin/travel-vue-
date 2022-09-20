@@ -4,30 +4,26 @@
             <swiper-slide v-for="item of list" :key="item.id">
                 <img class="swiper-img" :src="item.imgUrl" />
             </swiper-slide>
-            <div class="swiper-pagination" slot="pagination"></div>
+            <div class="swiper-pagination" :slot-scope="swiperOption.pagination"></div>
         </swiper>
     </div>
 </template>
 
 <script>
+import { computed } from 'vue'
 export default {
   name: 'HomeSwiper',
   props: {
     list: Array
   },
-  data () {
-    return {
-      swiperOption: {
-        pagination: '.swiper-pagination',
+  setup (props) {
+    const swiperOption = {
+       pagination: '.swiper-pagination',
         loop: true,
         autoplay: 3300
-      }
     }
-  },
-  computed: {
-    showSwiper () {
-      return this.list.length
-    }
+    const showSwiper = computed(() => props.list.length)
+    return { swiperOption, showSwiper }
   }
 }
 </script>

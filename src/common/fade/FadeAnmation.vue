@@ -13,7 +13,7 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-  .v-enter, .v-leave-to
+  .v-enter-from, .v-leave-to
     opacity: 0
   .v-enter-active, .v-leave-active
     transition: opacity 2s
